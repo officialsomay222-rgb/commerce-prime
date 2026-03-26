@@ -1,0 +1,7 @@
+{
+  "name": "Remix: Commerce Prime",
+  "description": "A professional, high-performance calculator suite for Class 12 Commerce students covering Accountancy, Economics, Mathematics, and Business Studies.",
+  "requestFramePermissions": [
+    "notifications"
+  ]
+}
