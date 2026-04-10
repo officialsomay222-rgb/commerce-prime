@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { CalculatorRoom } from './CalculatorRoom';
 import { ResultDisplay } from './CalculatorCard';
 import { ValidatedInput } from './ValidatedInput';
@@ -18,6 +18,14 @@ const EconomicsCalc: React.FC<Props> = ({ activeId, onClose }) => {
   const handleInputChange = (setter: any, field: string, value: string) => {
     setter((prev: any) => ({ ...prev, [field]: value }));
   };
+
+  const elasticityValue = useMemo(() => {
+    const q1 = parseFloat(elasticity.q1);
+    const q2 = parseFloat(elasticity.q2);
+    const p1 = parseFloat(elasticity.p1);
+    const p2 = parseFloat(elasticity.p2);
+    return Math.abs(((q2 - q1) / q1) / ((p2 - p1) / p1) || 0).toFixed(2);
+  }, [elasticity.q1, elasticity.q2, elasticity.p1, elasticity.p2]);
 
   return (
     <>
@@ -59,7 +67,7 @@ Types:
           <ValidatedInput label="Initial Quantity (Q1)" value={elasticity.q1} onChange={(v) => handleInputChange(setElasticity, 'q1', v)} />
           <ValidatedInput label="New Quantity (Q2)" value={elasticity.q2} onChange={(v) => handleInputChange(setElasticity, 'q2', v)} />
         </div>
-        <ResultDisplay label="Elasticity (Ed)" value={Math.abs(((parseFloat(elasticity.q2)-parseFloat(elasticity.q1))/parseFloat(elasticity.q1)) / ((parseFloat(elasticity.p2)-parseFloat(elasticity.p1))/parseFloat(elasticity.p1)) || 0).toFixed(2)} highlight />
+        <ResultDisplay label="Elasticity (Ed)" value={elasticityValue} highlight />
       </CalculatorRoom>
 
       {/* National Income Room */}
