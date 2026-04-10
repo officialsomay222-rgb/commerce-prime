@@ -18,7 +18,7 @@ const AccountancyCalc: React.FC<Props> = ({ activeId, onClose }) => {
   // Depreciation State
   const [depr, setDepr] = useState({ cost: '', scrap: '', life: '', rate: '', years: '1' });
   // NPSR State
-  const [npsr, setNpsr] = useState({ old1: '3', old2: '2', share: '1', type: 'simple' }); // 3:2 ratio, 1/5 share
+  const [npsr, setNpsr] = useState({ old1: '3', old2: '2', share: '1' }); // 3:2 ratio, 1/5 share
   // Shares State
   const [shares, setShares] = useState({ applied: '', allotted: '', appMoney: '', totalShares: '' });
 
