@@ -19,6 +19,8 @@ const EconomicsCalc: React.FC<Props> = ({ activeId, onClose }) => {
     setter((prev: any) => ({ ...prev, [field]: value }));
   };
 
+  const gvaValue = parseFloat(ni.gvo) - parseFloat(ni.ic);
+
   return (
     <>
       {/* Multiplier Room */}
@@ -81,8 +83,8 @@ Types:
           <ValidatedInput label="Net Indirect Tax (NIT)" value={ni.nit} onChange={(v) => handleInputChange(setNi, 'nit', v)} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <ResultDisplay label="GVA at MP" value={(parseFloat(ni.gvo) - parseFloat(ni.ic) || 0).toFixed(2)} unit="Cr" highlight />
-          <ResultDisplay label="NVA at FC" value={(parseFloat(ni.gvo) - parseFloat(ni.ic) - parseFloat(ni.depr) - parseFloat(ni.nit) || 0).toFixed(2)} unit="Cr" />
+          <ResultDisplay label="GVA at MP" value={(gvaValue || 0).toFixed(2)} unit="Cr" highlight />
+          <ResultDisplay label="NVA at FC" value={(gvaValue - parseFloat(ni.depr) - parseFloat(ni.nit) || 0).toFixed(2)} unit="Cr" />
         </div>
       </CalculatorRoom>
 
