@@ -11,7 +11,7 @@ interface Props {
 const MathematicsCalc: React.FC<Props> = ({ activeId, onClose }) => {
   const [financial, setFinancial] = useState({ principal: '', rate: '', time: '', n: '12' });
   const [stats, setStats] = useState('');
-  const [annuity, setAnnuity] = useState({ pmt: '', rate: '', time: '', type: 'fv' });
+  const [annuity, setAnnuity] = useState({ pmt: '', rate: '', time: '' });
   const [prob, setProb] = useState({ favorable: '', total: '' });
 
   const handleInputChange = (setter: any, field: string, value: string) => {
