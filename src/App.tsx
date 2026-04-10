@@ -178,7 +178,7 @@ export default function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-6 py-12">
+      <main className="max-w-5xl mx-auto px-6 py-12 pb-28 md:pb-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSubject}
@@ -210,7 +210,7 @@ export default function App() {
             </div>
 
             {activeSubject === 'AI Loki' ? (
-              <div className="glass rounded-[4rem] p-12 md:p-20 text-center flex flex-col items-center justify-center min-h-[600px] relative overflow-hidden group border-2 border-brand-primary/10">
+              <div className="glass rounded-[4rem] p-8 md:p-20 text-center flex flex-col items-center justify-center min-h-[400px] md:min-h-[600px] relative overflow-hidden group border-2 border-brand-primary/10">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 via-transparent to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                 <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl" />
                 <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl" />

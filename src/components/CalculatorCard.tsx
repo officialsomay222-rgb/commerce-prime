@@ -59,7 +59,7 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
 }) => {
   return (
     <div className={cn(
-      "p-6 rounded-[2rem] flex flex-col gap-2 relative overflow-hidden transition-all duration-300",
+      "p-5 md:p-6 rounded-[2rem] flex flex-col gap-2 relative overflow-hidden transition-all duration-300",
       highlight 
         ? "bg-gradient-to-br from-brand-primary/10 to-indigo-500/10 border border-brand-primary/20 shadow-sm" 
         : "bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50"
@@ -70,9 +70,9 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
       <span className="text-[11px] font-black uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
         {label}
       </span>
-      <div className="flex items-baseline gap-1.5">
+      <div className="flex items-baseline flex-wrap gap-1.5">
         <span className={cn(
-          "text-4xl font-black tracking-tighter",
+          "text-3xl sm:text-4xl font-black tracking-tighter break-all sm:break-normal",
           highlight ? "text-brand-primary" : "text-zinc-900 dark:text-white"
         )}>
           {value}
