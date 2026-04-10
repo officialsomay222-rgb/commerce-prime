@@ -12,7 +12,7 @@ const AccountancyCalc: React.FC<Props> = ({ activeId, onClose }) => {
   // Ratio Analysis State
   const [ratios, setRatios] = useState({ ca: '', cl: '', debt: '', equity: '', np: '', sales: '', inventory: '' });
   // Partnership State
-  const [partnership, setPartnership] = useState({ capital: '', rate: '', drawings: '', period: '6.5' });
+  const [partnership, setPartnership] = useState({ rate: '', drawings: '', period: '6.5' });
   // Goodwill State
   const [goodwill, setGoodwill] = useState({ p1: '', p2: '', p3: '', normalRate: '', capitalEmployed: '', years: '2' });
   // Depreciation State
