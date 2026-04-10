@@ -20,7 +20,7 @@ const AccountancyCalc: React.FC<Props> = ({ activeId, onClose }) => {
   // NPSR State
   const [npsr, setNpsr] = useState({ old1: '3', old2: '2', share: '1', type: 'simple' }); // 3:2 ratio, 1/5 share
   // Shares State
-  const [shares, setShares] = useState({ applied: '', allotted: '', appMoney: '', totalShares: '' });
+  const [shares, setShares] = useState({ applied: '', allotted: '', appMoney: '' });
 
   const handleInputChange = (setter: any, field: string, value: string) => {
     setter((prev: any) => ({ ...prev, [field]: value }));
