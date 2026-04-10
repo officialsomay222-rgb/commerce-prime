@@ -14,7 +14,6 @@ import {
   Sun, 
   ChevronRight,
   ArrowRight,
-  LayoutGrid,
   Zap,
   Activity,
   BarChart3,
