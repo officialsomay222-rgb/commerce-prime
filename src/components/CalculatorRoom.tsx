@@ -42,9 +42,9 @@ export const CalculatorRoom: React.FC<CalculatorRoomProps> = ({
             className="relative w-full h-full md:w-[95vw] md:h-[95vh] md:rounded-[3rem] overflow-hidden bg-white dark:bg-zinc-900 shadow-2xl flex flex-col"
           >
             {/* Header */}
-            <div className="px-8 py-8 border-b border-zinc-100 dark:border-zinc-800 flex items-center justify-between sticky top-0 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl z-20">
+            <div className="px-6 py-6 md:px-8 md:py-8 border-b border-zinc-100 dark:border-zinc-800 flex items-center justify-between sticky top-0 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl z-20">
               <div className="flex-1">
-                <h3 className="text-4xl font-black tracking-tighter bg-gradient-to-r from-brand-primary via-indigo-500 to-violet-600 bg-clip-text text-transparent leading-none">
+                <h3 className="text-3xl md:text-4xl font-black tracking-tighter bg-gradient-to-r from-brand-primary via-indigo-500 to-violet-600 bg-clip-text text-transparent leading-none">
                   {title}
                 </h3>
                 {description && <p className="text-[10px] font-black text-zinc-400 dark:text-zinc-500 mt-2 uppercase tracking-[0.3em]">{description}</p>}
@@ -76,7 +76,7 @@ export const CalculatorRoom: React.FC<CalculatorRoomProps> = ({
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={onClose}
-                  className="w-14 h-14 rounded-2xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all shadow-sm"
+                  className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all shadow-sm shrink-0"
                 >
                   <X size={28} />
                 </motion.button>
@@ -88,7 +88,7 @@ export const CalculatorRoom: React.FC<CalculatorRoomProps> = ({
               <button 
                 onClick={() => setActiveTab('calc')}
                 className={cn(
-                  "flex-1 py-5 text-xs font-black uppercase tracking-[0.2em] border-b-2 transition-all",
+                  "flex-1 py-4 text-xs font-black uppercase tracking-[0.2em] border-b-2 transition-all",
                   activeTab === 'calc' ? "border-brand-primary text-brand-primary bg-white dark:bg-zinc-800" : "border-transparent text-zinc-500"
                 )}
               >
@@ -97,7 +97,7 @@ export const CalculatorRoom: React.FC<CalculatorRoomProps> = ({
               <button 
                 onClick={() => setActiveTab('theory')}
                 className={cn(
-                  "flex-1 py-5 text-xs font-black uppercase tracking-[0.2em] border-b-2 transition-all",
+                  "flex-1 py-4 text-xs font-black uppercase tracking-[0.2em] border-b-2 transition-all",
                   activeTab === 'theory' ? "border-brand-primary text-brand-primary bg-white dark:bg-zinc-800" : "border-transparent text-zinc-500"
                 )}
               >
@@ -106,7 +106,7 @@ export const CalculatorRoom: React.FC<CalculatorRoomProps> = ({
             </div>
             
             {/* Scrollable Body */}
-            <div className="flex-1 overflow-y-auto p-8 md:p-12 custom-scrollbar relative">
+            <div className="flex-1 overflow-y-auto p-6 md:p-12 custom-scrollbar relative">
               <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none mix-blend-overlay" />
               
               <AnimatePresence mode="wait">
@@ -117,10 +117,10 @@ export const CalculatorRoom: React.FC<CalculatorRoomProps> = ({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="max-w-4xl mx-auto space-y-12"
+                    className="max-w-4xl mx-auto space-y-8 md:space-y-12"
                   >
                     {formula && (
-                      <div className="p-10 md:p-12 rounded-[3rem] bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-800/50 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700/50 flex flex-col sm:flex-row gap-8 md:gap-10 relative overflow-hidden group shadow-xl shadow-zinc-200/20 dark:shadow-black/20">
+                      <div className="p-6 md:p-12 rounded-[2.5rem] md:rounded-[3rem] bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-800/50 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700/50 flex flex-col sm:flex-row gap-6 md:gap-10 relative overflow-hidden group shadow-xl shadow-zinc-200/20 dark:shadow-black/20">
                         <div className="absolute -right-12 -bottom-12 opacity-[0.05] dark:opacity-[0.03] group-hover:scale-110 transition-transform duration-1000 rotate-12">
                           <Calculator size={240} />
                         </div>
@@ -129,7 +129,7 @@ export const CalculatorRoom: React.FC<CalculatorRoomProps> = ({
                         </div>
                         <div className="relative z-10 flex-1 min-w-0">
                           <span className="text-[11px] font-black uppercase tracking-[0.3em] text-brand-primary/80 mb-4 block">Curriculum Standard Formula</span>
-                          <div className="bg-white/80 dark:bg-zinc-950/50 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-inner border border-zinc-100 dark:border-zinc-800/50">
+                          <div className="bg-white/80 dark:bg-zinc-950/50 backdrop-blur-md rounded-3xl p-4 md:p-8 shadow-inner border border-zinc-100 dark:border-zinc-800/50">
                             <MathEquation formula={formula} className="text-zinc-900 dark:text-zinc-100" />
                           </div>
                         </div>

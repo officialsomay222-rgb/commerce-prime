@@ -33,7 +33,7 @@ export const IntroPage: React.FC<IntroPageProps> = ({ onStart }) => {
           <Sparkles size={24} className="absolute -top-3 -right-3 text-amber-300 animate-pulse" />
         </motion.div>
 
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 bg-gradient-to-br from-zinc-900 via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-200 dark:to-zinc-500 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-6 bg-gradient-to-br from-zinc-900 via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-200 dark:to-zinc-500 bg-clip-text text-transparent">
           Commerce<br/><span className="text-brand-primary">Prime</span>
         </h1>
         
@@ -64,7 +64,7 @@ export const IntroPage: React.FC<IntroPageProps> = ({ onStart }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onStart}
-          className="group relative inline-flex items-center gap-3 px-10 py-5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full font-bold text-xl shadow-2xl hover:shadow-brand-primary/20 transition-all overflow-hidden"
+          className="group relative inline-flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full font-bold text-xl shadow-2xl hover:shadow-brand-primary/20 transition-all overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-brand-primary to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <span className="relative z-10 group-hover:text-white transition-colors">Enter Workspace</span>
