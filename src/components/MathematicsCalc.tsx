@@ -32,6 +32,26 @@ const MathematicsCalc: React.FC<Props> = ({ activeId, onClose }) => {
 
   const statResults = calculateStats();
 
+  // Financial Calculations
+  const emiResult = (() => {
+    const p = parseFloat(financial.principal);
+    const r = parseFloat(financial.rate) / 1200;
+    const n = parseFloat(financial.time) * 12;
+    const pow = Math.pow(1 + r, n);
+    return ((p * r * pow) / (pow - 1) || 0).toFixed(2);
+  })();
+
+  // Annuity Calculations
+  const annuityResult = (() => {
+    const pmt = parseFloat(annuity.pmt);
+    const r = parseFloat(annuity.rate) / 100;
+    const t = parseFloat(annuity.time);
+    return ((pmt * (Math.pow(1 + r, t) - 1)) / r || 0).toFixed(2);
+  })();
+
+  // Probability Calculations
+  const probResult = (parseFloat(prob.favorable) / parseFloat(prob.total) || 0).toFixed(4);
+
   return (
     <>
       {/* Financial Maths Room */}
@@ -54,7 +74,7 @@ const MathematicsCalc: React.FC<Props> = ({ activeId, onClose }) => {
             <ValidatedInput label="Time Period (Years)" value={financial.time} onChange={(v) => handleInputChange(setFinancial, 'time', v)} />
           </div>
         </div>
-        <ResultDisplay label="Monthly EMI" value={( (parseFloat(financial.principal) * (parseFloat(financial.rate)/1200) * Math.pow(1+parseFloat(financial.rate)/1200, parseFloat(financial.time)*12)) / (Math.pow(1+parseFloat(financial.rate)/1200, parseFloat(financial.time)*12)-1) || 0).toFixed(2)} unit="₹" highlight />
+        <ResultDisplay label="Monthly EMI" value={emiResult} unit="₹" highlight />
       </CalculatorRoom>
 
       {/* Statistics Room */}
@@ -97,7 +117,7 @@ const MathematicsCalc: React.FC<Props> = ({ activeId, onClose }) => {
             <ValidatedInput label="Number of Periods (n)" value={annuity.time} onChange={(v) => handleInputChange(setAnnuity, 'time', v)} />
           </div>
         </div>
-        <ResultDisplay label="Future Value" value={(parseFloat(annuity.pmt) * (Math.pow(1 + parseFloat(annuity.rate)/100, parseFloat(annuity.time)) - 1) / (parseFloat(annuity.rate)/100) || 0).toFixed(2)} unit="₹" highlight />
+        <ResultDisplay label="Future Value" value={annuityResult} unit="₹" highlight />
       </CalculatorRoom>
 
       {/* Probability Room */}
@@ -115,7 +135,7 @@ const MathematicsCalc: React.FC<Props> = ({ activeId, onClose }) => {
           <ValidatedInput label="Favorable Outcomes" value={prob.favorable} onChange={(v) => handleInputChange(setProb, 'favorable', v)} />
           <ValidatedInput label="Total Outcomes" value={prob.total} onChange={(v) => handleInputChange(setProb, 'total', v)} />
         </div>
-        <ResultDisplay label="Probability P(A)" value={(parseFloat(prob.favorable) / parseFloat(prob.total) || 0).toFixed(4)} highlight />
+        <ResultDisplay label="Probability P(A)" value={probResult} highlight />
       </CalculatorRoom>
     </>
   );
