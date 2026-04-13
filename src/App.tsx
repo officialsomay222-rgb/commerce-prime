@@ -50,6 +50,14 @@ interface CalcItem {
 
 import { IntroPage } from './components/IntroPage';
 
+const SUBJECT_COLORS: Record<Subject, string> = {
+  'Accountancy': 'bg-blue-500',
+  'Economics': 'bg-emerald-500',
+  'Mathematics': 'bg-indigo-500',
+  'Business Studies': 'bg-orange-500',
+  'AI Loki': 'bg-brand-primary',
+};
+
 export default function App() {
   const [activeSubject, setActiveSubject] = useState<Subject>('Accountancy');
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -89,11 +97,11 @@ export default function App() {
   }
 
   const subjects: { id: Subject; icon: React.ReactNode; color: string }[] = [
-    { id: 'Accountancy', icon: <BookOpen size={20} />, color: 'bg-blue-500' },
-    { id: 'Economics', icon: <TrendingUp size={20} />, color: 'bg-emerald-500' },
-    { id: 'Mathematics', icon: <Calculator size={20} />, color: 'bg-indigo-500' },
-    { id: 'Business Studies', icon: <PieChart size={20} />, color: 'bg-orange-500' },
-    { id: 'AI Loki', icon: <Activity size={20} />, color: 'bg-brand-primary' },
+    { id: 'Accountancy', icon: <BookOpen size={20} />, color: SUBJECT_COLORS['Accountancy'] },
+    { id: 'Economics', icon: <TrendingUp size={20} />, color: SUBJECT_COLORS['Economics'] },
+    { id: 'Mathematics', icon: <Calculator size={20} />, color: SUBJECT_COLORS['Mathematics'] },
+    { id: 'Business Studies', icon: <PieChart size={20} />, color: SUBJECT_COLORS['Business Studies'] },
+    { id: 'AI Loki', icon: <Activity size={20} />, color: SUBJECT_COLORS['AI Loki'] },
   ];
 
   const calculators: Record<Subject, CalcItem[]> = {
@@ -191,7 +199,7 @@ export default function App() {
               <div className="flex items-center gap-2 mb-3">
                 <motion.span 
                   layoutId="indicator"
-                  className={cn("w-3 h-3 rounded-full shadow-lg", subjects.find(s => s.id === activeSubject)?.color)}
+                  className={cn("w-3 h-3 rounded-full shadow-lg", SUBJECT_COLORS[activeSubject])}
                 ></motion.span>
                 <h2 className="text-xs font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500">{activeSubject}</h2>
               </div>
