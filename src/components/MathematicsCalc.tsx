@@ -9,7 +9,7 @@ interface Props {
 }
 
 const MathematicsCalc: React.FC<Props> = ({ activeId, onClose }) => {
-  const [financial, setFinancial] = useState({ principal: '', rate: '', time: '', n: '12' });
+  const [financial, setFinancial] = useState({ principal: '', rate: '', time: '' });
   const [stats, setStats] = useState('');
   const [annuity, setAnnuity] = useState({ pmt: '', rate: '', time: '' });
   const [prob, setProb] = useState({ favorable: '', total: '' });
