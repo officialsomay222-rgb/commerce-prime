@@ -10,7 +10,7 @@ interface Props {
 
 const AccountancyCalc: React.FC<Props> = ({ activeId, onClose }) => {
   // Ratio Analysis State
-  const [ratios, setRatios] = useState({ ca: '', cl: '', debt: '', equity: '', np: '', sales: '', inventory: '' });
+  const [ratios, setRatios] = useState({ ca: '', cl: '', debt: '', equity: '', np: '', inventory: '' });
   // Partnership State
   const [partnership, setPartnership] = useState({ rate: '', drawings: '', period: '6.5' });
   // Goodwill State
